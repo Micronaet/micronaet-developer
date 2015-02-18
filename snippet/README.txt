@@ -1,0 +1,4 @@
+Screen Cast 
+http://openerp.tv/display.php?rnd=NzA= 
+Description 
+http://openerp-team.blogspot.com/2009/08/faster-developent-with-open-erp-gedit.html?showComment=1266468698872_AIe9_BFqg8fUeRQePsVTGIvcQEG9B_eyt3tKimqBpX7PzGxV2_GWa9abMn745bmiwBXCIwfBeHq5uQMpRR5uxRfMOl5WTeczDawQb2YWwRsJIvbpFBb65lTZBfkvNLz9rutq2Ob7ovcdCcom4IfbDxeedOaZcmFT1I4N7fONV8dvUSDMMLayRGy1OWaRTBSq9QstbkdxAEqFv49k9qcbL55fevgxTx7f8YRW_kDv-GVoUu3XaTBeeK_Es2Ek2idBkLFokKtZQ3sr#c2985156337201464644
