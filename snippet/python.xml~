@@ -674,10 +674,9 @@ $1()]]></text>
     <tag>funct</tag>
     <description>Fnct field</description>
   </snippet>
-</snippets>
   <snippet>
     <text><![CDATA[import pdb; pdb.set_trace()$0]]></text>
     <tag>pdb</tag>
     <description>Breakpoint</description>
   </snippet>
-
+</snippets>
