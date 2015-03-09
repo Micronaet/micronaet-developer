@@ -8,6 +8,25 @@
     <description>_columns</description>
   </snippet>
   <snippet>
+    <text><![CDATA[${1:object}_ids = self.search(cr, uid, [], context=None)
+    for ${1:object} in self.browse(
+            cr, uid, ${1:object}_ids, context=context):
+        $0
+]]]></text>
+    <tag>browses</tag>
+    <description>Browse block with self</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:object}_pool = self.pool.get('${2:odoo.object}')
+    {1:object}_ids = ${1:object}_pool.search(cr, uid, [], context=None)
+    for ${1:object} in ${1:object}_pool.browse(
+            cr, uid, ${1:object}_ids, context=context):
+        $0
+]]]></text>
+    <tag>browse</tag>
+    <description>Browse block with object</description>
+  </snippet>
+  <snippet>
     <text><![CDATA[def ${1:_check_metho}(self, cr, uid, ids):
 	"""
 	A user defined constraints listed in {_constraints} 
@@ -512,7 +531,7 @@ import logging
 import openerp
 import openerp.netsvc as netsvc
 import openerp.addons.decimal_precision as dp
-from openerp.osv import fields, osv, expression
+from openerp.osv import fields, osv, expression, orm
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from openerp import SUPERUSER_ID, api

@@ -20,21 +20,23 @@
 
 
 {
-    'name' : 'Info menuitem',
-    'version' : '0.0.1',
-    'category' : 'Generic Modules/Developer',
-    'description' : """
+    'name': 'Info menuitem',
+    'version': '0.0.1',
+    'category': 'Generic Modules/Developer',
+    'description': """
         Add function fields in menuitem form (see in admin / technical sect.) 
         to get extra info: module.name
         """,
-    'author' : 'Micronaet s.r.l.',
-    'website' : 'http://www.micronaet.it',
-    'depends' : ['base', ],
-    'init_xml' : [],
-    'data' : ['menuitem_view.xml', ],
-    'demo_xml' : [],
-    'active' : False,
-    'installable' : True,
+    'author': 'Micronaet s.r.l.',
+    'website': 'http://www.micronaet.it',
+    'depends': ['base', ],
+    'init_xml': [],
+    'data': [
+        'menuitem_view.xml', 
+        ],
+    'demo_xml': [],
+    'active': False,
+    'installable': True,
     }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
     
