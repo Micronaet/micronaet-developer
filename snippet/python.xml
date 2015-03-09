@@ -12,17 +12,17 @@
     for ${1:object} in self.browse(
             cr, uid, ${1:object}_ids, context=context):
         $0
-]]]></text>
+]]></text>
     <tag>browses</tag>
     <description>Browse block with self</description>
   </snippet>
   <snippet>
     <text><![CDATA[${1:object}_pool = self.pool.get('${2:odoo.object}')
-    ${1:object}_ids = ${1:object}_pool.search(cr, uid, [], context=None)
-    for ${1:object} in ${1:object}_pool.browse(
-            cr, uid, ${1:object}_ids, context=context):
-        $0
-]]]></text>
+${1:object}_ids = ${1:object}_pool.search(cr, uid, [], context=None)
+for ${1:object} in ${1:object}_pool.browse(
+        cr, uid, ${1:object}_ids, context=context):
+    $0
+]]></text>
     <tag>browse</tag>
     <description>Browse block with object</description>
   </snippet>
