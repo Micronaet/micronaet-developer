@@ -1,3 +1,0 @@
-#!/bin/bash
-
-cp *.xml /home/thebrush/.config/gedit/snippets/
