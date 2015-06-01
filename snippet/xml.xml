@@ -10,10 +10,8 @@
   <!-- **** -->
   <snippet>
     <text><![CDATA[<openerp>
-    <data>
-    
-        $0
-        
+    <data>    
+        $0        
     </data>
 </openerp>]]></text>
     <tag>openerp</tag>
@@ -27,7 +25,8 @@
   </snippet>
 
   <snippet>
-    <text><![CDATA[<data>
+    <text><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<data>
 
     $0
     
@@ -83,7 +82,10 @@
            <search string="${3:String}">
                 <field name="partner_id" filter_domain="[('partner_id','=',self)]"/>
                 <filter name="state" string="Draft state" domain="[('state','=','draft')]"/>
-                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Status" context="{'group_by': 'state'}" icon="terp-stock_effects-object-colorize"/>
+                </group>                
            </search>
     </field>
 </record>]]></text>
