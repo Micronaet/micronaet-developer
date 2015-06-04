@@ -152,7 +152,7 @@ $0]]></text>
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-    $0]]></text>
+$0]]></text>
     <tag>micronaet</tag>
     <description>Micronaet copyleft</description>
   </snippet>
@@ -317,47 +317,47 @@ $0]]></text>
 
   <snippet>
     <text><![CDATA['$1_id': fields.many2one(
-        '${2:openerp.model}', '${3:Label}', 
-        required=${4:False}), $0]]></text>
+    '${2:openerp.model}', '${3:Label}', 
+    required=${4:False}), $0]]></text>
     <tag>mo</tag>
     <description>fields.many2one</description>
   </snippet>
 
   <snippet>
     <text><![CDATA['$1_ids': fields.one2many(
-        '${2:openerp.model}', '${3:field}_id', 
-        '${4:Label}', required=${5:False}), $0]]></text>
+    '${2:openerp.model}', '${3:field}_id', 
+    '${4:Label}', required=${5:False}), $0]]></text>
     <tag>om</tag>
     <description>fields.one2many</description>
   </snippet>
 
   <snippet>
     <text><![CDATA['$1_ids': fields.many2many(
-        '${2:openerp.model}', '${3:partner_category}_rel', 
-        '${5:partner}_id', '${6:category}_id', 
-        '${4:Label}'), $0]]></text>
+    '${2:openerp.model}', '${3:partner_category}_rel', 
+    '${5:partner}_id', '${6:category}_id', 
+    '${4:Label}'), $0]]></text>
     <tag>mm</tag>
     <description>fields.many2many</description>
   </snippet>
 
   <snippet>
     <text><![CDATA['$1': fields.function(
-        ${2:_function_call}, method=True, 
-        type='${3:float}', string='${4:Label}', 
-        store=${5:True}), 
+    ${2:_function_call}, method=True, 
+    type='${3:float}', string='${4:Label}', 
+    store=${5:True}), 
                 
-        def ${2:_function_call}(self, cr, uid, ids, fields, args, context=None):
-            ''' Fields function for calculate $0
-            ''']]></text>
+    def ${2:_function_call}(self, cr, uid, ids, fields, args, context=None):
+        ''' Fields function for calculate $0
+        ''']]></text>
     <tag>function</tag>
     <description>fields.function</description>
   </snippet>
 
   <snippet>
     <text><![CDATA['${1:field}_id': fields.related(
-        '${2:relation_field}', '${1}_id', 
-        type='${3:many2one}', relation='${4:openerp.model}', 
-        string=${5:Label}'), $0]]></text>
+    '${2:relation_field}', '${1}_id', 
+    type='${3:many2one}', relation='${4:openerp.model}', 
+    string=${5:Label}'), $0]]></text>
     <tag>related</tag>
     <description>fields.related</description>
   </snippet>
@@ -390,37 +390,37 @@ $0]]></text>
 
   <snippet>
     <text><![CDATA['state': fields.selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),
-        ('cancel', 'Cancel'),
-        ], '$3', readonly=True, )
-        
-        # Default value for state:
-        'state': lambda *x: 'draft',$0
-        ]]></text>
+    ('draft', 'Draft'),
+    ('done', 'Done'),
+    ('cancel', 'Cancel'),
+    ], '$3', readonly=True, )
+    
+    # Default value for state:
+    'state': lambda *x: 'draft',$0
+    ]]></text>
     <tag>state</tag>
     <description>fields.selection (state)</description>
   </snippet>
   
   <snippet>
     <text><![CDATA['${1:selection}': fields.selection([
-        ('${2:defaultvalue}', '${2:defaultvalue}'),
-        ], '${1:selection}', readonly=False, )
-        
-        # Default value:
-        '${1:selection}': lambda *x: '${1:defaultvalue}',$0
-        ]]></text>
+    ('${2:defaultvalue}', '${2:defaultvalue}'),
+    ], '${1:selection}', readonly=False, )
+    
+    # Default value:
+    '${1:selection}': lambda *x: '${1:defaultvalue}',$0
+    ]]></text>
     <tag>select</tag>
     <description>fields.selection (list)</description>
   </snippet>
 
   <snippet>
     <text><![CDATA['${1:selection}': fields.selection(
-        _get_selection_funct, '${1:selection}', readonly=False, )
-        
-        # Default value:
-        '${1:selection}': lambda *x: '',$0
-        ]]></text>
+    _get_selection_funct, '${1:selection}', readonly=False, )
+    
+    # Default value:
+    '${1:selection}': lambda *x: '',$0
+    ]]></text>
     <tag>selectf</tag>
     <description>fields.selection (function for list)</description>
   </snippet>
@@ -866,6 +866,12 @@ for ${1:object} in ${1:object}_pool.browse(
     <text><![CDATA[# -*- encoding: utf-8 -*-]]></text>
     <tag>encoding</tag>
     <description>Encoding</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:]]></text>
+    <tag>vim</tag>
+    <description>VIM bottom</description>
   </snippet>
 
 </snippets>
