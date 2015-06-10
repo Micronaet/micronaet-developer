@@ -1,0 +1,78 @@
+START FILE TYPE:
+openerp << file openerp standard *
+readme << file readme.md standard *
+    init << file init standard (not used: micronaet)
+
+BLOCKS:
+micronaet << copyleft *
+import << list of import standard *
+module << file module standard   (= micronaet + import) *
+
+OBJECT:
+class << start a class (with name, description, order, rec_name, _columns _defaults *
+wizard << start a wizard *
+abstract << class type abstract *
+
+FUNCTION:
+button << event *
+onchange << event *
+function << function for fields *
+workflow (model and function)
+
+FIELDS:
+char *
+int *
+binary *
+bigint *
+bool *
+float *
+date *
+datetime *
+time *
+text *
+selection *
+selection with function *
+selection state *
+
+mo *
+om * 
+mm *
+
+function *
+related * 
+property *
+
+OVERRIDE:
+copy *
+default_get *
+
+create *
+write *
+unlink *
+read *
+search *
+name_search *
+field_get *
+field_view_get *
+name_get *
+
+PIECE OF CODE:
+cr loop
+browse type self loop *
+browse type pool loop *
+
+EXTRA:
+constraints *
+sql constraints *
+col columns *
+domain *
+inherit
+inherits
+encoding
+store *
+pdb
+
+
+TODO
+
+
