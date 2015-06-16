@@ -846,6 +846,7 @@ for ${1:object} in ${1:object}_pool.browse(
     <description>_defaults</description>
   </snippet>
 
+  <snippet>
     <text><![CDATA[_inherits = {
     '${1:openerp.model}': '${2:model_id}'$0
 }]]></text>
