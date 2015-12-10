@@ -809,14 +809,18 @@ for ${1:object} in ${1:object}_pool.browse(
     view_id = model_pool.get_object_reference('${1:module_name}', '${2:view_name}')[1]
 
     return {
-        'name': '${3:view_name}',
+        'type': 'ir.actions.act_window',
+        'name': _('Result for ${3:view_name}'),
         'view_type': 'form',
         'view_mode': 'tree,form',
+        #'res_id': 1,
         'res_model': '${4:model.name}',
-        'view_id': view_id,
+        'view_id': view_id, # False
+        'views': [(False, 'tree'), (False, 'form')],
+        'domain': [],
         'context': context,
-        'type': 'ir.actions.act_window',
-        'target': 'current',
+        'target': 'current', # 'new'
+        'nodestroy': False,
     }
     $0]]></text>
     <tag>returnview</tag>
