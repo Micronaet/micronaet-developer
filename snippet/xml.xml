@@ -306,7 +306,7 @@ $0]]></text>
 
   <snippet>
     <text><![CDATA[<separator string="${1:Untitled}" colspan="${2:4}"/>$0]]></text>
-    <tag>line</tag>
+    <tag>separator</tag>
     <description>Separator</description>
   </snippet>
 
