@@ -56,23 +56,23 @@ $0]]></text>
     'name': 'Module type - Name',
     'version': '0.1',
     'category': 'Customization/Module',
-    #'description': """""",
-    'author': "Micronaet S.r.l. - Nicola Riolini",
+    #'description': '''''',
+    'author': 'Micronaet S.r.l. - Nicola Riolini',
     'website': 'http://www.micronaet.it',
     'license': 'AGPL-3',
-    "depends": ['
+    'depends': ['
         base'
         ],
-    "data": [
+    'data': [
         #'security/ir.model.access.csv',
         #'view/res_config_view.xml',
         ],
-    "qweb": [],
-    "demo": [],
-    "test": [],
-    "active": False,
-    "installable": True,
-    "application": False,
+    'qweb': [],
+    'demo': [],
+    'test': [],
+    'active': False,
+    'installable': True,
+    'application': False,
     }$0]]></text>
     <tag>odoo</tag>
     <description>ODOO file</description>
@@ -167,7 +167,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.osv import fields, osv, expression, orm
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-from openerp import SUPERUSER_ID, api
+from openerp import SUPERUSER_ID#, api
 from openerp import tools
 from openerp.tools.translate import _
 from openerp.tools.float_utils import float_round as round
@@ -199,8 +199,7 @@ $0]]></text>
     
     _columns = {
         'name': fields.char(
-            '${4:Name}', size=${5:64}, 
-            required=${6:True}, 
+            '${4:Name}', size=${5:64}, required=${6:True}, 
             ),$0
     }
     
@@ -444,7 +443,7 @@ $0]]></text>
 
     #TODO : process before result
     res = super(${1:ClasslName}, self).read(
-        cr, user, ids, fields, context=context)
+        cr, uid, ids, fields, context=context)
     #TODO : process after result
     return res
 $0]]></text>
@@ -485,8 +484,7 @@ $0]]></text>
 
     $0
     #TODO: process before delete resource
-    res = super(${1:ClassName}, self).unlink(
-        cr, uid, ids, context=context)
+    res = super(${1:ClassName}, self).unlink(cr, uid, ids, context=context)
     return res]]></text>
     <tag>unlink</tag>
     <description>def unlink</description>
@@ -507,7 +505,7 @@ $0]]></text>
 
     #TODO: process before updating resource
     res = super(${1:ClassName}, self).write(
-        cr, user, ids, vals, context=context)
+        cr, uid, ids, vals, context=context)
     return res
 $0]]></text>
     <tag>write</tag>
@@ -563,8 +561,7 @@ $0]]></text>
     """
 
     $0
-    return super(${1:ClassName}, self).fields_get(
-        cr, user, fields, context, read_access)
+    return super(${1:ClassName}, self).fields_get(cr, uid, fields, context, read_access)
 ]]></text>
     <tag>fieldsget</tag>
     <description>def fields_get</description>
@@ -585,7 +582,7 @@ $0]]></text>
     """
 
     res = super(${1:ClassName}, self).fields_view_get(
-        cr, user, view_id, view_type, context, toolbar)
+        cr, uid, view_id, view_type, context, toolbar)
     return res]]></text>
     <tag>fields_view_get</tag>
     <description>def fields_view_get</description>
@@ -642,10 +639,10 @@ $0]]></text>
     ids = []
     $0
     if name:
-        ids = self.search(cr, user, [('code','ilike',name)] + args, limit=limit)
+        ids = self.search(cr, uid, [('code','ilike',name)] + args, limit=limit)
     if not ids:
-        ids = self.search(cr, user, [('name',operator,name)] + args, limit=limit)
-    self.name_get(cr, user, ids, context=context)
+        ids = self.search(cr, uid, [('name',operator,name)] + args, limit=limit)
+    self.name_get(cr, uid, ids, context=context)
 ]]></text>
     <tag>namesearch</tag>
     <description>def name_search</description>
@@ -670,7 +667,7 @@ $0]]></text>
     #TODO : process on args before search
     $0
     res = super(${1:ClassName}, self).search(
-        cr, user, args, offset, limit, order, context, count):
+        cr, uid, args, offset, limit, order, context, count):
     #TODO : process on result
     return res
 ]]></text>
