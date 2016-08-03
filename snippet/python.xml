@@ -446,7 +446,7 @@ $0]]></text>
         cr, uid, ids, fields, context=context)
     #TODO : process after result
     return res
-$0]]></text>
+    $0]]></text>
     <tag>read</tag>
     <description>def read</description>
   </snippet>
@@ -584,7 +584,7 @@ $0]]></text>
     res = super(${1:ClassName}, self).fields_view_get(
         cr, uid, view_id, view_type, context, toolbar)
     return res]]></text>
-    <tag>fields_view_get</tag>
+    <tag>fieldsviewget</tag>
     <description>def fields_view_get</description>
   </snippet>
   
@@ -802,7 +802,8 @@ for ${1:object} in ${1:object}_pool.browse(
   </snippet>
 
   <snippet>
-    <text><![CDATA[model_pool = self.pool.get('ir.model.data')
+    <text><![CDATA[
+    model_pool = self.pool.get('ir.model.data')
     view_id = model_pool.get_object_reference('${1:module_name}', '${2:view_name}')[1]
 
     return {
@@ -818,15 +819,14 @@ for ${1:object} in ${1:object}_pool.browse(
         'context': context,
         'target': 'current', # 'new'
         'nodestroy': False,
-    }
-    $0]]></text>
+        }$0]]></text>
     <tag>returnview</tag>
     <description>Return view</description>
   </snippet>
   
   
   <snippet>
-    <text><![CDATA[domain=[('${1:state}', '${2:=}', '${3:done}')]$0]]></text>
+    <text><![CDATA[domain=[('${1:key}', '${2:=}', '${3:value}')]$0]]></text>
     <tag>domain</tag>
     <description>Domain</description>
   </snippet>
@@ -835,7 +835,7 @@ for ${1:object} in ${1:object}_pool.browse(
     <text><![CDATA[store = {
     #TODO Define model and function call for store field
     '${1:field_name}': (_get_invoice_from_line, None, 50),
-}]]></text>
+    }]]></text>
     <tag>store</tag>
     <description>Field Attribute: store</description>
   </snippet>
@@ -868,7 +868,7 @@ for ${1:object} in ${1:object}_pool.browse(
 
     _constraints = [
         ($1, 'Error: Invalid Message', ['${2:field_name}']),
-]]]></text>
+    ]]]></text>
     <tag>constraints</tag>
     <description>_constraints</description>
   </snippet>
@@ -876,7 +876,7 @@ for ${1:object} in ${1:object}_pool.browse(
   <snippet>
     <text><![CDATA[_defaults = {
     '${1:date}': lambda *a: time.strftime('%Y-%m-%d'),$0
-}]]></text>
+    }]]></text>
     <tag>def</tag>
     <description>_defaults</description>
   </snippet>
@@ -884,7 +884,7 @@ for ${1:object} in ${1:object}_pool.browse(
   <snippet>
     <text><![CDATA[_inherits = {
     '${1:openerp.model}': '${2:model_id}'$0
-}]]></text>
+    }]]></text>
     <tag>inherits</tag>
     <description>_inherits</description>
   </snippet>
@@ -893,7 +893,7 @@ for ${1:object} in ${1:object}_pool.browse(
     <text><![CDATA[_sql_constraints = [
     ('name_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique !'),
     $0
-]]]></text>
+    ]]]></text>
     <tag>sql</tag>
     <description>_sql_constraints</description>
   </snippet>
@@ -909,5 +909,4 @@ for ${1:object} in ${1:object}_pool.browse(
     <tag>vim</tag>
     <description>VIM bottom</description>
   </snippet>
-
 </snippets>
