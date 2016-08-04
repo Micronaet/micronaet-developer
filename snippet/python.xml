@@ -823,6 +823,25 @@ for ${1:object} in ${1:object}_pool.browse(
     <tag>returnview</tag>
     <description>Return view</description>
   </snippet>
+  <snippet>
+    <text><![CDATA[wiz_proxy = self.browse(cr, uid, ids, context=context)[0]
+        datas = {}
+
+        datas['wizard'] = True # started from wizard
+        datas['${1:parameter}'] = wiz_proxy.${1:parameter}
+        report_name = wiz_proxy.report_name
+
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name': report_name, 
+            'datas': datas,
+            'context': context,
+            }$0
+    ]]></text>
+    <tag>returnreport</tag>
+    <description>Return report view</description>
+  </snippet>
+
   
   
   <snippet>
