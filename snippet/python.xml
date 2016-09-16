@@ -263,9 +263,8 @@ $0]]></text>
   </snippet>
   
   <snippet>
-    <text><![CDATA['$1': fields.char(
-    '${2:Label}', size=${3:64}, required=${4:False}, 
-    readonly=${5:False}), $0]]></text>
+    <text><![CDATA['$1': fields.char('${2:Label}', size=${3:64}, 
+        required=${4:False}, readonly=${5:False}),$0]]></text>
     <tag>char</tag>
     <description>fields.char</description>
   </snippet>
@@ -291,25 +290,26 @@ $0]]></text>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:time}': fields.date('${2:Label}', required=${4:False}), $0]]></text>
+    <text><![CDATA['${1:time}': fields.date('${2:Label}', required=${4:False}),$0]]></text>
     <tag>time</tag>
     <description>fields.time</description>
   </snippet>
     
   <snippet>
-    <text><![CDATA['${1:float}': fields.float('${2:Label}', digits=(${3:16}, config(int['price_accuracy']))), required=${4:False}), $0]]></text>
+    <text><![CDATA['${1:float}': fields.float('${2:Label}', digits=(${3:16}, 
+        config(int['price_accuracy']))), required=${4:False}),$0]]></text>
     <tag>float</tag>
     <description>fields.float</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:number}': fields.integer('${2:Label}'), required=${3:False}), $0]]></text>
+    <text><![CDATA['${1:number}': fields.integer('${2:Label}', required=${3:False}),$0]]></text>
     <tag>int</tag>
     <description>fields.integer</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:number_big}': fields.integer_big('${2:Label}'), required=${3:False}), $0]]></text>
+    <text><![CDATA['${1:number_big}': fields.integer_big('${2:Label}'), required=${3:False}),$0]]></text>
     <tag>bigint</tag>
     <description>fields.integer_big</description>
   </snippet>
@@ -317,7 +317,7 @@ $0]]></text>
   <snippet>
     <text><![CDATA['$1_id': fields.many2one(
     '${2:openerp.model}', '${3:Label}', 
-    required=${4:False}), $0]]></text>
+    required=${4:False}),$0]]></text>
     <tag>mo</tag>
     <description>fields.many2one</description>
   </snippet>
@@ -325,7 +325,7 @@ $0]]></text>
   <snippet>
     <text><![CDATA['$1_ids': fields.one2many(
     '${2:openerp.model}', '${3:field}_id', 
-    '${4:Label}', required=${5:False}), $0]]></text>
+    '${4:Label}', required=${5:False}),$0]]></text>
     <tag>om</tag>
     <description>fields.one2many</description>
   </snippet>
@@ -334,7 +334,7 @@ $0]]></text>
     <text><![CDATA['$1_ids': fields.many2many(
     '${2:openerp.model}', '${3:partner_category}_rel', 
     '${5:partner}_id', '${6:category}_id', 
-    '${4:Label}'), $0]]></text>
+    '${4:Label}'),$0]]></text>
     <tag>mm</tag>
     <description>fields.many2many</description>
   </snippet>
@@ -356,7 +356,7 @@ $0]]></text>
     <text><![CDATA['${1:field}_id': fields.related(
     '${2:relation_field}', '${1}_id', 
     type='${3:many2one}', relation='${4:openerp.model}', 
-    string=${5:Label}'), $0]]></text>
+    string=${5:Label}'),$0]]></text>
     <tag>related</tag>
     <description>fields.related</description>
   </snippet>
@@ -787,7 +787,7 @@ for ${1:object} in ${1:object}_pool.browse(
   <!-- EXTRA -->
   <!-- ***** -->  
   <snippet>
-    <text><![CDATA[assert ${1:condition}, '${2:error}'$0]]></text>
+    <text><![CDATA[assert len(ids) == 1, 'Works only with one record a time'$0]]></text>
     <tag>assert</tag>
     <description>Assert</description>
   </snippet>
@@ -802,8 +802,7 @@ for ${1:object} in ${1:object}_pool.browse(
   </snippet>
 
   <snippet>
-    <text><![CDATA[
-    model_pool = self.pool.get('ir.model.data')
+    <text><![CDATA[model_pool = self.pool.get('ir.model.data')
     view_id = model_pool.get_object_reference('${1:module_name}', '${2:view_name}')[1]
 
     return {
