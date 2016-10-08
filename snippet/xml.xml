@@ -184,8 +184,14 @@
   </snippet>
 
   <snippet>
+    <text><![CDATA[<field name="${1:name}" />]]></text>
+    <tag>f</tag>
+    <description>Field</description>
+  </snippet>
+
+  <snippet>
     <text><![CDATA[widget="currency/many2many_tags"$0]]></text>
-    <tag>wieget</tag>
+    <tag>widget</tag>
     <description>widget</description>
   </snippet>
 

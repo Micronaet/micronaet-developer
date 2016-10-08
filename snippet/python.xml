@@ -927,4 +927,15 @@ for ${1:object} in ${1:object}_pool.browse(
     <tag>vim</tag>
     <description>VIM bottom</description>
   </snippet>
+  
+  <snippet>
+    <text><![CDATA[raise osv.except_osv(
+                _('${1:Error header}'), 
+                _('${2:Error message}'),
+                )$0]]></text>
+    <tag>raise</tag>
+    <description>Raise message</description>
+  </snippet>
+
+  
 </snippets>
