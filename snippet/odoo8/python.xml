@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <snippets language="python">
   <!-- ******************************************************************** -->
-  <!-- *********************** VERSION 9.0 ******************************** -->
+  <!-- *********************** VERSION 8.0 ******************************** -->
   <!-- ******************************************************************** -->
 
 
@@ -13,8 +13,8 @@
 -----------------------------
 
 Copyright: 
-    Micronaet S.r.l. 2001-2018
-    [Official web site for reference](https://micronaet.com)
+    Micronaet S.r.l. 2001-2015
+    [Official web site for reference](https://www.micronaet.it)
 
 Developer: 
     Nicola Riolini @thebrush
@@ -29,13 +29,12 @@ $0]]></text>
   </snippet>
 
   <snippet>
-    <text><![CDATA[#!/usr/bin/python
-# -*- coding: utf-8 -*-
+    <text><![CDATA[# -*- coding: utf-8 -*-
 ###############################################################################
 #
 # ODOO (ex OpenERP) 
 # Open Source Management Solution
-# Copyright (C) 2001-2018 Micronaet S.r.l. (<https://micronaet.com>)
+# Copyright (C) 2001-2015 Micronaet S.r.l. (<http://www.micronaet.it>)
 # Developer: Nicola Riolini @thebrush (<https://it.linkedin.com/in/thebrush>)
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -83,13 +82,12 @@ $0]]></text>
   <!-- BLOCKS -->
   <!-- ****** -->
   <snippet>
-    <text><![CDATA[#!/usr/bin/python
-# -*- coding: utf-8 -*-
+    <text><![CDATA[# -*- coding: utf-8 -*-
 ###############################################################################
 #
 # ODOO (ex OpenERP) 
 # Open Source Management Solution
-# Copyright (C) 2001-2018 Micronaet S.r.l. (<https://micronaet.com>)
+# Copyright (C) 2001-2015 Micronaet S.r.l. (<http://www.micronaet.it>)
 # Developer: Nicola Riolini @thebrush (<https://it.linkedin.com/in/thebrush>)
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -119,12 +117,10 @@ from openerp import SUPERUSER_ID, api
 from openerp import tools
 from openerp.tools.translate import _
 from openerp.tools.float_utils import float_round as round
-from openerp.tools import (
-    DEFAULT_SERVER_DATE_FORMAT, 
+from openerp.tools import (DEFAULT_SERVER_DATE_FORMAT, 
     DEFAULT_SERVER_DATETIME_FORMAT, 
     DATETIME_FORMATS_MAP, 
-    float_compare,
-    )
+    float_compare)
 
 
 _logger = logging.getLogger(__name__)
@@ -135,13 +131,12 @@ $0]]></text>
   </snippet>
 
   <snippet>
-    <text><![CDATA[#!/usr/bin/python
-# -*- coding: utf-8 -*-
+    <text><![CDATA[# -*- coding: utf-8 -*-
 ###############################################################################
 #
 # ODOO (ex OpenERP) 
 # Open Source Management Solution
-# Copyright (C) 2001-2018 Micronaet S.r.l. (<https://micronaet.com>)
+# Copyright (C) 2001-2015 Micronaet S.r.l. (<http://www.micronaet.it>)
 # Developer: Nicola Riolini @thebrush (<https://it.linkedin.com/in/thebrush>)
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -157,7 +152,6 @@ $0]]></text>
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-
 $0]]></text>
     <tag>micronaet</tag>
     <description>Micronaet copyleft</description>
@@ -177,12 +171,10 @@ from openerp import SUPERUSER_ID#, api
 from openerp import tools
 from openerp.tools.translate import _
 from openerp.tools.float_utils import float_round as round
-from openerp.tools import (
-    DEFAULT_SERVER_DATE_FORMAT, 
+from openerp.tools import (DEFAULT_SERVER_DATE_FORMAT, 
     DEFAULT_SERVER_DATETIME_FORMAT, 
     DATETIME_FORMATS_MAP, 
-    float_compare,
-    )
+    float_compare)
 
 
 _logger = logging.getLogger(__name__)
@@ -272,31 +264,33 @@ $0]]></text>
   
   <snippet>
     <text><![CDATA['$1': fields.char('${2:Label}', size=${3:64}, 
-        required=${4:True}, readonly=${5:True}),$0]]></text>
+        required=${4:False}, readonly=${5:False}),$0]]></text>
     <tag>char</tag>
     <description>fields.char</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['note': fields.text('Note'),$0]]></text>
+    <text><![CDATA['note': fields.text(
+    'Note', required=${1:False}, 
+    readonly=${2:False}) ,$0]]></text>
     <tag>text</tag>
     <description>fields.text</description>
   </snippet>
   
   <snippet>
-    <text><![CDATA['${1:date}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['${1:date}': fields.date('${2:Label}', required=${4:False}),$0]]></text>
     <tag>date</tag>
     <description>fields.date</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:datetime}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['${1:datetime}': fields.date('${2:Label}', required=${4:False}),$0]]></text>
     <tag>datetime</tag>
     <description>fields.datetime</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:time}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['${1:time}': fields.date('${2:Label}', required=${4:False}),$0]]></text>
     <tag>time</tag>
     <description>fields.time</description>
   </snippet>
@@ -309,25 +303,29 @@ $0]]></text>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:number}': fields.integer('${2:Label}', required=${3:True}),$0]]></text>
+    <text><![CDATA['${1:number}': fields.integer('${2:Label}', required=${3:False}),$0]]></text>
     <tag>int</tag>
     <description>fields.integer</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:number_big}': fields.integer_big('${2:Label}'), required=${3:True}),$0]]></text>
+    <text><![CDATA['${1:number_big}': fields.integer_big('${2:Label}'), required=${3:False}),$0]]></text>
     <tag>bigint</tag>
     <description>fields.integer_big</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['$1_id': fields.many2one('${2:openerp.model}', '${3:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['$1_id': fields.many2one(
+    '${2:openerp.model}', '${3:Label}', 
+    required=${4:False}),$0]]></text>
     <tag>mo</tag>
     <description>fields.many2one</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['$1_ids': fields.one2many('${2:openerp.model}', '${3:field}_id', '${4:Label}', required=${5:True}),$0]]></text>
+    <text><![CDATA['$1_ids': fields.one2many(
+    '${2:openerp.model}', '${3:field}_id', 
+    '${4:Label}', required=${5:False}),$0]]></text>
     <tag>om</tag>
     <description>fields.one2many</description>
   </snippet>
@@ -394,7 +392,7 @@ $0]]></text>
     ('draft', 'Draft'),
     ('done', 'Done'),
     ('cancel', 'Cancel'),
-    ], '$3', readonly=True),
+    ], '$3', readonly=True, )
     
     # Default value for state:
     'state': lambda *x: 'draft',$0
@@ -406,7 +404,7 @@ $0]]></text>
   <snippet>
     <text><![CDATA['${1:selection}': fields.selection([
     ('${2:defaultvalue}', '${2:defaultvalue}'),
-    ], '${1:selection}'),
+    ], '${1:selection}', readonly=False, )
     
     # Default value:
     '${1:selection}': lambda *x: '${1:defaultvalue}',$0
@@ -417,7 +415,7 @@ $0]]></text>
 
   <snippet>
     <text><![CDATA['${1:selection}': fields.selection(
-    _get_selection_funct, '${1:selection}'),
+    _get_selection_funct, '${1:selection}', readonly=False, )
     
     # Default value:
     '${1:selection}': lambda *x: '',$0
@@ -464,7 +462,8 @@ $0]]></text>
         @return: returns a id of new record
     """
 
-    res_id = super(${1:ClassName}, self).create(cr, uid, vals, context=context)
+    res_id = super(${1:ClassName}, self).create(
+        cr, uid, vals, context=context)
     return res_id
 $0]]></text>
     <tag>create</tag>
@@ -843,6 +842,7 @@ for ${1:object} in ${1:object}_pool.browse(
   </snippet>
 
   
+  
   <snippet>
     <text><![CDATA[domain=[('${1:key}', '${2:=}', '${3:value}')]$0]]></text>
     <tag>domain</tag>
@@ -909,7 +909,7 @@ for ${1:object} in ${1:object}_pool.browse(
 
   <snippet>
     <text><![CDATA[_sql_constraints = [
-    ('name_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique!'),
+    ('name_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique !'),
     $0
     ]]]></text>
     <tag>sql</tag>
@@ -930,10 +930,12 @@ for ${1:object} in ${1:object}_pool.browse(
   
   <snippet>
     <text><![CDATA[raise osv.except_osv(
-    _('${1:Error header}'), 
-    _('${2:Error message}'),
-    )$0]]></text>
+                _('${1:Error header}'), 
+                _('${2:Error message}'),
+                )$0]]></text>
     <tag>raise</tag>
     <description>Raise message</description>
   </snippet>
+
+  
 </snippets>

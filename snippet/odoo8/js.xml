@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="js">
+  <snippet>
+    <text><![CDATA[/**
+ * Class: $<2: return $1>
+ *
+ */
+var $1 = function($3) {
+	$0
+}]]></text>
+    <tag>aaa</tag>
+    <description>AAA</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[function ${1:name}(${2:params}) {
+	$3
+}$0]]></text>
+    <tag>func</tag>
+    <description>FUNCTION - named function</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[var ${1:name} = function(${2:params}) {
+	$3
+}$0]]></text>
+    <tag>ofunc</tag>
+    <description>FUNCTION - object</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:name}: function(${2:params}) {
+	$3
+}$0]]></text>
+    <tag>mfunc</tag>
+    <description>FUNCTION - object member</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:document}.getElementById('${2:some_id}')$0]]></text>
+    <tag>$</tag>
+    <description>getElementsById</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:document}.getElementsByName('${2:name}')$0]]></text>
+    <tag>$</tag>
+    <description>getElementsByName</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:document}.getElementsByTagName('${2:tag}')$0]]></text>
+    <tag>$</tag>
+    <description>getElementsByTagName</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[ else {
+	$1
+}$0]]></text>
+    <tag>else</tag>
+    <description>IF - else</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[ else if (${1:condition}) {
+	$2
+}$0]]></text>
+    <tag>elif</tag>
+    <description>IF - else if</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[if (${1:condition}) {
+	$2
+}$0]]></text>
+    <tag>if</tag>
+    <description>IF - if</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[do {
+	$2
+} while(${1:condition})$0]]></text>
+    <tag>dowhile</tag>
+    <description>LOOP - do while</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[for (var ${1:i}=0; ${1}<${2:10}; ${1}++) {
+	$4
+}$0]]></text>
+    <tag>for</tag>
+    <description>LOOP - for</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[while (${1:condition}) {
+	$2
+}$0]]></text>
+    <tag>while</tag>
+    <description>LOOP - while</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[var ${1:name} = function(${2:params}) {
+
+	var cls = arguments.callee;
+	if (!(this instanceof cls)) {
+		return new cls($2);
+	}
+  
+	this.__init__($2);
+}
+
+$1.prototype = {
+
+	__class__: $1,
+	
+	__init__: function(${2}) {
+		$3
+	},
+	
+	repr: function() {
+		return "[$1]";
+	},
+	
+	toString: MochiKit.Base.forwardCall("repr")$4
+	
+}$0]]></text>
+    <tag>mkClass</tag>
+    <description>MochiKit - class</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[// Check for loaded MochiKit
+if (typeof(MochiKit) == "undefined") {
+	throw new ReferenceError("MochiKit must be loaded before loading this script");
+}
+]]></text>
+    <tag>mkCheck</tag>
+    <description>MochiKit - dep</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[MochiKit.Iter.forEach(${1:iterable}, function(${2:params}){
+	$3
+});$0]]></text>
+    <tag>mkFor</tag>
+    <description>MochiKit - forEach</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[if (typeof(${1:namespace}) == 'undefined') {
+    $1 = {};
+}
+
+$1.NAME = "$1";
+$1.VERSION = "${2:1.0}";
+$1.__repr__ = function () {
+    return "[" + this.NAME + " " + this.VERSION + "]";
+};
+
+$1.toString = function () {
+    return this.__repr__();
+};]]></text>
+    <tag>mkNS</tag>
+    <description>MochiKit - namespace</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:object}.prototype.${2:name} = function(${3:params}) {
+	$4
+}$0]]></text>
+    <tag>proto</tag>
+    <description>OBJECT - prototype</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[${1:object}.prototype = {
+	${2:name} : function(${3:params}) {
+		$4
+	}$5
+}$0]]></text>
+    <tag>protos</tag>
+    <description>OBJECT - prototypes</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[case ${1:value}:
+	${2://TODO: code here}
+	break;
+$0]]></text>
+    <tag>case</tag>
+    <description>SWITCH - case</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[switch (${1:variable}) {
+	case ${2:value}:
+		${3://TODO: code here}
+		break;
+	$4
+	default:
+		${5://TODO: code here}
+		break;
+}$0]]></text>
+    <tag>switch</tag>
+    <description>SWITCH - switch</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[ catch(${1:ex}) {
+	$2
+}$0]]></text>
+    <tag>catch</tag>
+    <description>TRY - catch</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[ finally {
+	$1
+}$0]]></text>
+    <tag>finally</tag>
+    <description>TRY - finally</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[try {
+	$1
+} catch(${2:ex}) {
+	$3
+}$0]]></text>
+    <tag>try</tag>
+    <description>TRY - try</description>
+  </snippet>
+</snippets>

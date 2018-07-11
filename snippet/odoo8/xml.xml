@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="xml">
+
+  <!-- ******************************************************************** -->
+  <!-- ******************* VIEW ODOO VERSION 8.0 ************************** -->
+  <!-- ******************************************************************** -->
+
+  <!-- **** -->
+  <!-- FILE -->
+  <!-- **** -->
+  <snippet>
+    <text><![CDATA[<openerp>
+    <data>    
+        $0        
+    </data>
+</openerp>]]></text>
+    <tag>openerp</tag>
+    <description>&lt;openerp&gt;</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<?xml version="1.0"?>]]></text>
+    <tag>xml</tag>
+    <description>&lt;?xml version="1.0"?&gt;</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<data>
+
+    $0
+    
+</data>]]></text>
+    <tag>data</tag>
+    <description>&lt;data&gt;</description>
+  </snippet>
+  
+  <!-- **** -->
+  <!-- VIEW -->
+  <!-- **** -->
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:model_name}_form_inherit">
+    <field name="name">${2:model.name}.form.inherit</field>
+    <field name="model">${2}</field>
+    <field name="inherit_id" ref="${3:module.view_id}"/>
+    <field name="arch" type="xml">
+        <field name="${4:field_name}" position="${5:replace/after/before}">
+        <xpath expr="${4:field_name}" position="${5:replace/after/before}">
+            $0
+        </xpath>
+        </field>
+    </field>
+</record>]]></text>
+    <tag>formi</tag>
+    <description>View: Inherited Form</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:model_name}_form">
+    <field name="name">${2:model.name}.form</field>
+    <field name="model">${2}</field>
+    <field name="arch" type="xml">
+        <form string="${3:String}" version="7.0">        
+            <sheet>
+                <group col="4" colspan="4">
+                    $0
+                </group>
+            </sheet>        
+        </form>
+    </field>
+</record>]]></text>
+    <tag>form</tag>
+    <description>View: Form</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:model_name}_search">
+    <field name="name">${2:model.name}.search</field>
+    <field name="model">${2:model.name}</field>
+    <field name="arch" type="xml">
+        <search string="${3:String}" version="7.0">        
+            <field name="name" />
+            <field name="partner_id" filter_domain="[('partner_id','=',self)]"/>
+            <filter name="state_draft" string="Draft state" domain="[('state','=','draft')]"/>
+            <group expand="0" string="Group By...">
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter string="Status" context="{'group_by': 'state'}" />
+            </group>                
+        </search>
+    </field>
+</record>]]></text>
+    <tag>search</tag>
+    <description>View: Search</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:model_name}_tree">
+    <field name="name">${2:model.name}.tree</field>
+    <field name="model">${2}</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <tree string="${3:String}" editable="${1:top/bottom}" color="${1:grey}:${2:state}=='${3:cancel}';${4:grey}:${5:state}=='${6:cancel}'">        
+            <field name="name"$0 />
+        </tree>
+    </field>
+</record>]]></text>
+    <tag>tree</tag>
+    <description>View: Form</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:model_name}_gantt">
+    <field name="name">${2:model.name}.gantt</field>
+    <field name="model">${2:model.name}</field>
+    <field name="priority" eval="10"/>
+    <field name="arch" type="xml">
+        <gantt color="${3:field_id}" date_delay="${4:date_field}" date_start="${5:date_field}" string="${6:Untitled}">
+            <level object="${2:model.name}" link="${7:field}_id" domain="[]">
+                <field name="${8:name}"/>
+            </level>
+        </gantt>
+    </field>
+</record>]]></text>
+    <tag>gantt</tag>
+    <description>View: Gantt</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:openerp_model}_graph">
+    <field name="name">${2:openerp.model}.graph</field>
+    <field name="model">${2:openerp.model}</field>
+    <field name="type">graph</field>
+    <field name="arch" type="xml">
+        <graph string="${3:Untitled}" type="${4:bar/pie}">
+            <field name="${5:field_id}"/>
+            <field name="${6:field}" operator="+"/>
+        </graph>
+    </field>
+</record>]]></text>
+    <tag>graph</tag>
+    <description>View: Graph</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="ir.ui.view" id="view_${1:model_name}_calendar">
+    <field name="name">${2:model.name}.calendar</field>
+    <field name="model">${2:model.name}</field>
+    <field name="type">calendar</field>
+    <field name="priority" eval="10"/>
+    <field name="arch" type="xml">
+        <calendar color="${3:field_id}" date_delay="${4:date_field}" date_start="${5:date_field}" string="${6:Untitled}">
+            <field name="${7:name}"/>$0
+        </calendar>
+    </field>
+</record>]]></text>
+    <tag>calendar</tag>
+    <description>View: calendar</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="${1:openerp.model}" id="${2:record_id}">
+    <field name="${3:field}">${4}</field>$0
+</record>]]></text>
+    <tag>data</tag>
+    <description>Data Record</description>
+  </snippet>
+
+
+  <snippet>
+    <text><![CDATA[<field name="inherit_id" ref="${1:module.view_id}"/>$0]]></text>
+    <tag>inherit</tag>
+    <description>inherit</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<newline/>]]></text>
+    <tag>line</tag>
+    <description>New Line</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<newline/>]]></text>
+    <tag>new</tag>
+    <description>New Line</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<field name="${1:name}" />]]></text>
+    <tag>f</tag>
+    <description>Field</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[widget="currency/many2many_tags"$0]]></text>
+    <tag>widget</tag>
+    <description>widget</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[toolbar="${1:1}"$0]]></text>
+    <tag>attr</tag>
+    <description>toolbar</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[position="${1:replace/before/after}"$0]]></text>
+    <tag>attr</tag>
+    <description>position</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[color="${1:grey}:${2:state}=='${3:cancel}';${4:grey}:${5:state}=='${6:cancel}'"$0]]></text>
+    <tag>color</tag>
+    <description>color</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[date_delay="${1:duration}"$0]]></text>
+    <tag>delay</tag>
+    <description>date_delay</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[date_start="${1:date}"$0]]></text>
+    <tag>start</tag>
+    <description>date_start</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[date_end="${1:end_date}"$0]]></text>
+    <tag>stop</tag>
+    <description>date_stop</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[attrs="{'${1:invisible / readonly}': [('${2:field}','${3:=}','${4:value}'), $0]}"]]></text>
+    <tag>attrs</tag>
+    <description>attrs</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[tabpos="${1:left/right/top/bottom}"$0]]></text>
+    <tag>tabpos</tag>
+    <description>tabpos</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[width="${1:200}"$0]]></text>
+    <tag>width</tag>
+    <description>width</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[domain="[('${1:field}','${2:=}','${3:value}')]"$0]]></text>
+    <tag>domain</tag>
+    <description>domain</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[password="${1:1}"$0]]></text>
+    <tag>password</tag>
+    <description>password</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[confirm="${1:Are you sure to confirm this record.}"$0]]></text>
+    <tag>confirm</tag>
+    <description>confirm</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<record model="ir.actions.act_window" id="action_${1:open_view}_form">
+    <field name="name">${2:Untitled}</field>
+    <field name="res_model">${3:openerp.model}</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_${4:model_name}_form"/>
+    <field name="context">{}</field>
+    <field name="domain">[]</field>
+</record>]]></text>
+    <tag>action</tag>
+    <description>Action: Record view</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<menuitem 
+    parent="${1:parent_menu}" 
+    id="menu_action_${2:openerp_model}_tree" 
+    action="action_${2}_tree"/>
+$0]]></text>
+    <tag>menu</tag>
+    <description>Menu record</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<act_window
+    domain="[('${1:field_id}', '=', active_id)]"
+    id="act_${2:openerp_model}_2_${3:openerp_model}"
+    name="${4:Untitle}"
+    res_model="${5:openerp.model}"
+    src_model="${6:openerp.model}"
+    view_mode="${7:tree,form,calendar,graph}"
+    view_type="form"/>]]></text>
+    <tag>act</tag>
+    <description>Action: OTHER button (link)</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<button name="${1:signal}" string="${2:Untitle}" type="${3:object/action/workflow}" $0/>]]></text>
+    <tag>button</tag>
+    <description>button</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<separator string="${1:Untitled}" colspan="${2:4}"/>$0]]></text>
+    <tag>separator</tag>
+    <description>Separator</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<notebook colspan="${1:4}">
+    <page string="${2:Page}">
+        <field name="${3:name}" />
+    </page>
+</notebook>]]></text>
+    <tag>note</tag>
+    <description>Notebook</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[<page string="${1:Page}">
+    <field name="${2:name}" />
+</page>]]></text>
+    <tag>page</tag>
+    <description>New Page</description>
+  </snippet>
+  
+</snippets>
