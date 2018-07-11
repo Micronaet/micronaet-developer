@@ -4,6 +4,867 @@
   <!-- *********************** VERSION 9.0 ******************************** -->
   <!-- ******************************************************************** -->
 
+  <!-- **************** -->
+  <!-- START FILE TYPE: -->
+  <!-- **************** -->
+
+  <!-- readme (same 8.0)-->
+
+  <snippet>
+    <text><![CDATA[#!/usr/bin/python
+# -*- coding: utf-8 -*-
+###############################################################################
+#
+# ODOO (ex OpenERP) 
+# Open Source Management Solution
+# Copyright (C) 2001-2018 Micronaet S.r.l. (<https://micronaet.com>)
+# Developer: Nicola Riolini @thebrush (<https://it.linkedin.com/in/thebrush>)
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+# See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###############################################################################
+
+{
+    'name': 'Title',
+    'summary': 'Subtitle',
+    #'description': '''''',
+        
+    'author': 'Micronaet S.r.l. - Nicola Riolini',
+    'license': 'AGPL-3',
+    'website': 'https://micronaet.com',
+    
+    'category': '',
+    'version': '0.1',
+    
+    'depends': [
+        'base',
+        ],
+    #'init_xml': [],
+    'data': [
+        #'security/_group.xml',
+        #'security/ir.model.access.csv',    
+        
+        #'views/_view.xml',
+        ],
+    'demo': [],
+    
+    'active': False,
+    'auto_install': False,
+    'installable': True,
+    'application': False,
+    }$0]]></text>
+    <tag>odoo9</tag>
+    <description>ODOO file for v. 9.0</description>
+  </snippet>
+<!-- A QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
+
+  <!-- ****** -->
+  <!-- BLOCKS -->
+  <!-- ****** -->
+  <snippet>
+    <text><![CDATA[#!/usr/bin/python
+# -*- coding: utf-8 -*-
+###############################################################################
+#
+# ODOO (ex OpenERP) 
+# Open Source Management Solution
+# Copyright (C) 2001-2018 Micronaet S.r.l. (<https://micronaet.com>)
+# Developer: Nicola Riolini @thebrush (<https://it.linkedin.com/in/thebrush>)
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+# See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###############################################################################
+
+import os
+import sys
+import logging
+import openerp
+import openerp.netsvc as netsvc
+import openerp.addons.decimal_precision as dp
+from openerp.osv import fields, osv, expression, orm
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+from openerp import SUPERUSER_ID, api
+from openerp import tools
+from openerp.tools.translate import _
+from openerp.tools.float_utils import float_round as round
+from openerp.tools import (
+    DEFAULT_SERVER_DATE_FORMAT, 
+    DEFAULT_SERVER_DATETIME_FORMAT, 
+    DATETIME_FORMATS_MAP, 
+    float_compare,
+    )
+
+
+_logger = logging.getLogger(__name__)
+
+$0]]></text>
+    <tag>module9</tag>
+    <description>ODOO License</description>
+  </snippet>
+
+  <!--micronaet same as 8.0 -->
+
+  <snippet>
+    <text><![CDATA[import os
+import sys
+import logging
+import openerp
+import openerp.netsvc as netsvc
+import openerp.addons.decimal_precision as dp
+from openerp.osv import fields, osv, expression, orm
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+from openerp import SUPERUSER_ID#, api
+from openerp import tools
+from openerp.tools.translate import _
+from openerp.tools.float_utils import float_round as round
+from openerp.tools import (
+    DEFAULT_SERVER_DATE_FORMAT, 
+    DEFAULT_SERVER_DATETIME_FORMAT, 
+    DATETIME_FORMATS_MAP, 
+    float_compare,
+    )
+
+
+_logger = logging.getLogger(__name__)
+
+$0]]></text>
+    <tag>import9</tag>
+    <description>Default import</description>
+  </snippet>
+  
+  <!-- ******* -->
+  <!-- OBJECTS -->
+  <!-- ******* -->
+  <snippet>
+    <text><![CDATA[class ${1:ClassNameCamelCase}(orm.Model):
+    """ Model name: ${1:ClassNameCamelCase}
+    """
+    
+    _name = '${2:odoo.model}'
+    _description = '${3:description}'
+    _rec_name = 'name'
+    _order = 'name'
+    
+    _columns = {
+        'name': fields.char(
+            '${4:Name}', size=${5:64}, required=${6:True}, 
+            ),$0
+    }
+    
+    #_defaults = {
+    #   'name': lambda *a: None,
+        }
+$1()]]></text>
+    <tag>classm9</tag>
+    <description>ODOO Class: standard model</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[class ${1:WizardClassNameCamelCase}(orm.TransientModel):
+    """ Wizard name: ${1:WizardNameCamelCase}
+    """
+    
+    _name = '${2:wizard.model}'
+    _description = '${3:description}'
+    
+    _columns = {
+        'name': fields.char(
+            '${4:Name}', size=${5:64}, 
+            required=${6:True}, 
+            ),$0
+    }
+    
+    #_defaults = {
+    #   'name': lambda *a: None,
+        }
+$0]]></text>
+    <tag>classw9</tag>
+    <description>ODOO Class: wizard model</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[class ${1:AbstractClassNameCamelCase}(orm.TransientModel):
+    """ Abstract model name: ${1:AbstractNameCamelCase}
+    """
+    
+    _name = '${2:abstract.model}'
+    _description = '${3:description}'
+    
+$0]]></text>
+    <tag>classa9</tag>
+    <description>ODOO Class: Abstract model</description>
+  </snippet>
+
+  <!-- ****** -->
+  <!-- FIELDS  -->
+  <!-- ****** -->  
+  <snippet>
+    <text><![CDATA['${1:file}': fields.binary('${2:Label}', filters=${3:None}),$0]]></text>
+    <tag>binary9</tag>
+    <description>fields.binary</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA['$1':fields.boolean('${2:Label}',$0]]></text>
+    <tag>bool9</tag>
+    <description>fields.boolean</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA['$1': fields.char('${2:Label}', size=${3:64}, 
+        required=${4:True}, readonly=${5:True}),$0]]></text>
+    <tag>char9</tag>
+    <description>fields.char</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['note': fields.text('Note'),$0]]></text>
+    <tag>text9</tag>
+    <description>fields.text</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA['${1:date}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <tag>date9</tag>
+    <description>fields.date</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['${1:datetime}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <tag>datetime9</tag>
+    <description>fields.datetime</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['${1:time}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <tag>time9</tag>
+    <description>fields.time</description>
+  </snippet>
+    
+  <snippet>
+    <text><![CDATA['${1:float}': fields.float('${2:Label}', digits=(${3:16}, 
+        config(int['price_accuracy']))), required=${4:False}),$0]]></text>
+    <tag>float9</tag>
+    <description>fields.float</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['${1:number}': fields.integer('${2:Label}', required=${3:True}),$0]]></text>
+    <tag>int9</tag>
+    <description>fields.integer</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['${1:number_big}': fields.integer_big('${2:Label}'), required=${3:True}),$0]]></text>
+    <tag>bigint9</tag>
+    <description>fields.integer_big</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['$1_id': fields.many2one('${2:openerp.model}', '${3:Label}', required=${4:True}),$0]]></text>
+    <tag>mo9</tag>
+    <description>fields.many2one</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['$1_ids': fields.one2many('${2:openerp.model}', '${3:field}_id', '${4:Label}', required=${5:True}),$0]]></text>
+    <tag>om9</tag>
+    <description>fields.one2many</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['$1_ids': fields.many2many(
+    '${2:openerp.model}', '${3:partner_category}_rel', 
+    '${5:partner}_id', '${6:category}_id', 
+    '${4:Label}'),$0]]></text>
+    <tag>mm9</tag>
+    <description>fields.many2many</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['$1': fields.function(
+    ${2:_function_call}, method=True, 
+    type='${3:float}', string='${4:Label}', 
+    store=${5:True}), 
+                
+    def ${2:_function_call}(self, cr, uid, ids, fields, args, context=None):
+        ''' Fields function for calculate $0
+        ''']]></text>
+    <tag>function9</tag>
+    <description>fields.function</description>
+  </snippet>
+
+  <!--related removed-->
+
+  <snippet> <!--NEVER USED TODO TEST!!-->
+    <text><![CDATA['${1:ref}': fields.reference('${2:Document}', 
+    selection=[
+        #TODO : define list of model and Label that will be work as a reference
+        ('account.account', 'Account'),
+        $0
+    ], size$=${3:128}),]]></text>
+    <tag>reference9</tag>
+    <description>fields.reference</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['state': fields.selection([
+    ('draft', 'Draft'),
+    ('done', 'Done'),
+    ('cancel', 'Cancel'),
+    ], '$3', readonly=True),
+    
+    # Default value for state:
+    'state': lambda *x: 'draft',$0
+    ]]></text>
+    <tag>state9</tag>
+    <description>fields.selection (state)</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA['${1:selection}': fields.selection([
+    ('${2:defaultvalue}', '${2:defaultvalue}'),
+    ], '${1:selection}'),
+    
+    # Default value:
+    '${1:selection}': lambda *x: '${1:defaultvalue}',$0
+    ]]></text>
+    <tag>select9</tag>
+    <description>fields.selection (list)</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA['${1:selection}': fields.selection(
+    _get_selection_funct, '${1:selection}'),
+    
+    # Default value:
+    '${1:selection}': lambda *x: '',$0
+    ]]></text>
+    <tag>selectf9</tag>
+    <description>fields.selection (function for list)</description>
+  </snippet>
+
+  <!-- ************ -->
+  <!-- ORM OVERRIDE -->
+  <!-- ************ -->  
+
+  <snippet>
+    <text><![CDATA[def read(self, cr, uid, ids, fields=None, context=None, load='_classic_read'):
+    """ Return a list of dict that contains records read based on ids
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: ids of records to be read
+        @param fields: list of fields to be read
+        @param context: context arguments, like lang, time zone
+        @param load: 
+        
+        @return: return a list if dict that contains records read based on ids
+    """
+
+    #TODO : process before result
+    res = super(${1:ClasslName}, self).read(
+        cr, uid, ids, fields, context=context)
+    #TODO : process after result
+    return res
+    $0]]></text>
+    <tag>read9</tag>
+    <description>def read</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def create(self, cr, uid, vals, context=None):
+    """ Create a new record for a model ${1:ClassName}
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param vals: provides a data for new record
+        @param context: context arguments, like lang, time zone
+        
+        @return: returns a id of new record
+    """
+
+    res_id = super(${1:ClassName}, self).create(cr, uid, vals, context=context)
+    return res_id
+$0]]></text>
+    <tag>create9</tag>
+    <description>def create</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def unlink(self, cr, uid, ids, context=None):
+    """ Delete all record(s) from table heaving record id in ids
+        return True on success, False otherwise 
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of record ids to be removed from table
+        @param context: context arguments, like lang, time zone
+        
+        @return: True on success, False otherwise
+    """
+
+    $0
+    #TODO: process before delete resource
+    res = super(${1:ClassName}, self).unlink(cr, uid, ids, context=context)
+    return res]]></text>
+    <tag>unlink9</tag>
+    <description>def unlink</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def write(self, cr, uid, ids, vals, context=None):
+    """ Update redord(s) comes in {ids}, with new value comes as {vals}
+        return True on success, False otherwise
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of record ids to be update
+        @param vals: dict of new values to be set
+        @param context: context arguments, like lang, time zone
+        
+        @return: True on success, False otherwise
+    """
+
+    #TODO: process before updating resource
+    res = super(${1:ClassName}, self).write(
+        cr, uid, ids, vals, context=context)
+    return res
+$0]]></text>
+    <tag>write9</tag>
+    <description>def write</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def copy(self, cr, uid, id, default=None, context=None):
+    """ Create a new record in ${1:ClassName} model from existing one
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param id: list of record ids on which copy method executes
+        @param default: dict type contains the values to override in copy oper.
+        @param context: context arguments
+        
+        @return: returns a id of newly created record
+    """
+        
+    $0
+    res_id = super(${1:ClassName}, self).copy(cr, uid, id, default, context)
+    return res_id]]></text>
+    <tag>copy9</tag>
+    <description>def copy</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def default_get(self, cr, uid, fields_list, context=None):
+    """ Return the default values for fields
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param fields_list: list of fields, which required to read default values
+        @param context: context arguments, like lang, time zone
+        
+        @return: returns a dict that contains default values for fields
+    """
+
+    values = {}
+    $0
+    return values]]></text>
+    <tag>defaultget9</tag>
+    <description>def default_get</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def fields_get(self, cr, uid, fields=None, context=None):
+    """ Return the definition of fields
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param fields: list of fields, which required to read fields definition
+        @param context: context arguments, like lang, time zone
+        
+        @return: returns a dict that contains signatures for fields
+    """
+
+    $0
+    return super(${1:ClassName}, self).fields_get(cr, uid, fields, context, read_access)
+]]></text>
+    <tag>fieldsget9</tag>
+    <description>def fields_get</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def fields_view_get(self, cr, uid, view_id=None, view_type='form', 
+        context=None, toolbar=False):
+    """ Return a view and fields for current model. where view will be depends on view_type.
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param view_id: list of fields, which required to read signatures
+        @param view_type: defines a view type. it can be one of (form, tree, graph, calender, gantt, search, mdx)
+        @param context: context arguments, like lang, time zone
+        @param toolbar: contains a list of reports, wizards, and links related to current model
+        
+        @return: returns a dict that contains definition for fields, views, and toolbars
+    """
+
+    res = super(${1:ClassName}, self).fields_view_get(
+        cr, uid, view_id, view_type, context, toolbar)
+    return res]]></text>
+    <tag>fieldsviewget9</tag>
+    <description>def fields_view_get</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def name_get(self, cr, uid, ids, context=None):
+    """ Return a list of tupples contains id, name.
+        result format : {[(id, name), (id, name), ...]}
+        
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of ids for which name should be read
+        @param context: context arguments, like lang, time zone
+        
+        @return: returns a list of tupples contains id, name
+    """
+    
+        if isinstance(ids, (list, tuple)) and not len(ids):
+            return []
+        if isinstance(ids, (long, int)):
+            ids = [ids]            
+        res = []
+        for record in self.browse(cr, uid, ids, context=context):
+            res.append((record.id, record.name))
+        return res
+    $0
+]]></text>
+    <tag>nameget9</tag>
+    <description>def name_get</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def name_search(self, cr, uid, name, args=None, operator='ilike', 
+        context=None, limit=80):
+    """ Return a list of tupples contains id, name, as internally its calls {def name_get}
+        result format : {[(id, name), (id, name), ...]}
+        
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param name: name to be search 
+        @param args: other arguments
+        @param operator: default operator is ilike, it can be change
+        @param context: context arguments, like lang, time zone
+        @param limit: returns first n ids of complete result, default it is 80
+        
+        @return: return a list of tupples contains id, name
+    """
+    
+    if not args:
+        args = []
+    if not context:
+        context = {}
+    ids = []
+    $0
+    if name:
+        ids = self.search(cr, uid, [('code','ilike',name)] + args, limit=limit)
+    if not ids:
+        ids = self.search(cr, uid, [('name',operator,name)] + args, limit=limit)
+    self.name_get(cr, uid, ids, context=context)
+]]></text>
+    <tag>namesearch9</tag>
+    <description>def name_search</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[def search(self, cr, uid, args, offset=0, limit=None, order=None, 
+        context=None, count=False):
+    """ Return a list of integers based on search domain {args}
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param args: list of conditions to be applied in search opertion
+        @param offset: default from first record, you can start from n records
+        @param limit: number of records to be comes in answer from search opertion
+        @param order: ordering on any field(s)
+        @param context: context arguments, like lang, time zone
+        @param count: 
+        
+        @return: a list of integers based on search domain
+    """
+
+    #TODO : process on args before search
+    $0
+    res = super(${1:ClassName}, self).search(
+        cr, uid, args, offset, limit, order, context, count):
+    #TODO : process on result
+    return res
+]]></text>
+    <tag>search9</tag>
+    <description>def search</description>
+  </snippet>
+
+  <!-- ************* -->
+  <!-- PIECE OF CODE -->
+  <!-- ************* -->  
+  <snippet>
+    <text><![CDATA[${1:object}_ids = self.search(cr, uid, [], context=None)
+for ${1:object} in self.browse(
+        cr, uid, ${1:object}_ids, context=context):
+    $0
+]]></text>
+    <tag>browses9</tag>
+    <description>Browse (self)</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[${1:object}_pool = self.pool.get('${2:odoo.object}')
+${1:object}_ids = ${1:object}_pool.search(cr, uid, [], context=None)
+for ${1:object} in ${1:object}_pool.browse(
+        cr, uid, ${1:object}_ids, context=context):
+    $0
+]]></text>
+    <tag>browse9</tag>
+    <description>Browse (pool)</description>
+  </snippet>
+
+  <!-- TODO cr with loop-->
+  
+  <!-- ******** -->
+  <!-- FUNCTION -->
+  <!-- ******** -->  
+  <snippet>
+    <text><![CDATA[def onchange_${1:fields}(self, cr, uid, $1, context=None):
+    """ Return a dict that contains new values, and context
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param $1: latest value from user input for field $1
+        @param args: other arguments
+        @param context: context arguments, like lang, time zone
+        
+        @return: return a dict that contains new values, and context
+    """
+    res = {
+        'value' = {}
+        #'warning': {'message': '', 'title': ''},
+        #'domain': {}, 
+        }
+    $0
+    
+    return res]]></text>
+    <tag>onchange9</tag>
+    <description>ODOO Method: on_change</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[def ${1:_function_method}(self, cr, uid, ids, *args):
+    """ The cancel action for workflow
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of record ids on which business flow executes
+        @param fields: other fields
+        @param args: other arguments 
+        @param context: context dictionary 
+        
+        @return: return True if all constraints satisfied, False otherwise
+    """
+    
+    result = True
+    #TODO : Business Process
+    $0
+    return result]]></text>
+    <tag>funct9</tag>
+    <description>ODOO Method: Fields function</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[def action_${1:action_name}(self, cr, uid, ids, fields, context=None):
+    """ Function fields method: ${1:action_name}
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of record ids on which business flow executes
+        @param fields: other fields
+        @param context: context dictionary 
+        
+        @return: return Value
+    """
+        
+    $0
+    return True]]></text>
+    <tag>wf9</tag>
+    <description>ODOO Method: Workflow</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[def ${1:button_event}(self, cr, uid, ids, context=None):
+    """ Button event
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of record ids on which business flow executes
+        @param context: other context
+        
+        @return: always return True
+    """
+    
+    $0
+    return True]]></text>
+    <tag>button9</tag>
+    <description>ODOO Method: Button event</description>
+  </snippet>
+
+  <!-- ***** -->
+  <!-- EXTRA -->
+  <!-- ***** -->  
+  <snippet>
+    <text><![CDATA[assert len(ids) == 1, 'Works only with one record a time'$0]]></text>
+    <tag>assert9</tag>
+    <description>Assert</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[return {
+    'type': 'ir.actions.client',
+    'tag': 'reload',
+    }$0]]></text>
+    <tag>returnrefresh9</tag>
+    <description>Return view refresh</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[model_pool = self.pool.get('ir.model.data')
+    view_id = model_pool.get_object_reference('${1:module_name}', '${2:view_name}')[1]
+
+    return {
+        'type': 'ir.actions.act_window',
+        'name': _('Result for ${3:view_name}'),
+        'view_type': 'form',
+        'view_mode': 'tree,form',
+        #'res_id': 1,
+        'res_model': '${4:model.name}',
+        'view_id': view_id, # False
+        'views': [(False, 'tree'), (False, 'form')],
+        'domain': [],
+        'context': context,
+        'target': 'current', # 'new'
+        'nodestroy': False,
+        }$0]]></text>
+    <tag>returnview9</tag>
+    <description>Return view</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[wiz_proxy = self.browse(cr, uid, ids, context=context)[0]
+        datas = {}
+
+        datas['wizard'] = True # started from wizard
+        datas['${1:parameter}'] = wiz_proxy.${1:parameter}
+        report_name = wiz_proxy.report_name
+
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name': report_name, 
+            'datas': datas,
+            'context': context,
+            }$0
+    ]]></text>
+    <tag>returnreport9</tag>
+    <description>Return report view</description>
+  </snippet>
+
+  
+  <snippet>
+    <text><![CDATA[domain=[('${1:key}', '${2:=}', '${3:value}')]$0]]></text>
+    <tag>domain9</tag>
+    <description>Domain</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[store = {
+    #TODO Define model and function call for store field
+    '${1:field_name}': (_get_invoice_from_line, None, 50),
+    }]]></text>
+    <tag>store9</tag>
+    <description>Field Attribute: store</description>
+  </snippet>
+
+  <!--pdb same as 8.0-->
+  
+  <!--col removed-->
+
+  <snippet>
+    <text><![CDATA[def ${1:_check_method}(self, cr, uid, ids):
+    """ A user defined constraints listed in {_constraints} 
+        @param cr: cursor to database
+        @param uid: id of current user
+        @param ids: list of record ids on which constraints executes
+        
+        @return: return True if all constraints satisfied, False otherwise
+    """
+    $0
+    return True
+
+    _constraints = [
+        ($1, 'Error: Invalid Message', ['${2:field_name}']),
+    ]]]></text>
+    <tag>constraints9</tag>
+    <description>_constraints</description>
+  </snippet>
+  
+  <snippet>
+    <text><![CDATA[_defaults = {
+    '${1:date}': lambda *a: time.strftime('%Y-%m-%d'),$0
+    }]]></text>
+    <tag>def9</tag>
+    <description>_defaults</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[_inherits = {
+    '${1:openerp.model}': '${2:model_id}'$0
+    }]]></text>
+    <tag>inherits9</tag>
+    <description>_inherits</description>
+  </snippet>
+
+  <snippet>
+    <text><![CDATA[_sql_constraints = [
+    ('name_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique!'),
+    $0
+    ]]]></text>
+    <tag>sql9</tag>
+    <description>_sql_constraints</description>
+  </snippet>
+  
+  <!--encoding same as 8.0-->
+
+  <!--vim same as 8.0-->
+  
+  <snippet>
+    <text><![CDATA[raise osv.except_osv(
+    _('${1:Error header}'), 
+    _('${2:Error message}'),
+    )$0]]></text>
+    <tag>raise9</tag>
+    <description>Raise message</description>
+  </snippet>
+
+
+
+
+  <!-- ******************************************************************** -->
+  <!-- *********************** VERSION 8.0 ******************************** -->
+  <!-- ******************************************************************** -->
 
   <!-- **************** -->
   <!-- START FILE TYPE: -->
