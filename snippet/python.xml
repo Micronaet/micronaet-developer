@@ -66,7 +66,6 @@
     <tag>odoo9</tag>
     <description>ODOO file for v. 9.0</description>
   </snippet>
-<!-- A QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
 
   <!-- ****** -->
   <!-- BLOCKS -->
@@ -97,17 +96,12 @@
 
 import os
 import sys
-import logging
 import openerp
-import openerp.netsvc as netsvc
-import openerp.addons.decimal_precision as dp
-from openerp.osv import fields, osv, expression, orm
+import logging
+from openerp import models, fields
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-from openerp import SUPERUSER_ID, api
-from openerp import tools
 from openerp.tools.translate import _
-from openerp.tools.float_utils import float_round as round
 from openerp.tools import (
     DEFAULT_SERVER_DATE_FORMAT, 
     DEFAULT_SERVER_DATETIME_FORMAT, 
@@ -128,17 +122,12 @@ $0]]></text>
   <snippet>
     <text><![CDATA[import os
 import sys
-import logging
 import openerp
-import openerp.netsvc as netsvc
-import openerp.addons.decimal_precision as dp
-from openerp.osv import fields, osv, expression, orm
+import logging
+from openerp import models, fields
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-from openerp import SUPERUSER_ID#, api
-from openerp import tools
 from openerp.tools.translate import _
-from openerp.tools.float_utils import float_round as round
 from openerp.tools import (
     DEFAULT_SERVER_DATE_FORMAT, 
     DEFAULT_SERVER_DATETIME_FORMAT, 
@@ -158,7 +147,7 @@ $0]]></text>
   <!-- OBJECTS -->
   <!-- ******* -->
   <snippet>
-    <text><![CDATA[class ${1:ClassNameCamelCase}(orm.Model):
+    <text><![CDATA[class ${1:ClassNameCamelCase}(models.Model):
     """ Model name: ${1:ClassNameCamelCase}
     """
     
@@ -167,20 +156,18 @@ $0]]></text>
     _rec_name = 'name'
     _order = 'name'
     
-    _columns = {
-        'name': fields.char(
-            '${4:Name}', size=${5:64}, required=${6:True}, 
-            ),$0
-    }
-    
-    #_defaults = {
-    #   'name': lambda *a: None,
-        }
-$1()]]></text>
+    # -------------------------------------------------------------------------
+    # COLUMNS:
+    # -------------------------------------------------------------------------
+    name = fields.Char('${4:Name}', size=${5:64}, required=${6:True})
+    $0
+    # -------------------------------------------------------------------------
+]]></text>
     <tag>classm9</tag>
     <description>ODOO Class: standard model</description>
   </snippet>
-  
+
+  <!--XXX check:-->  
   <snippet>
     <text><![CDATA[class ${1:WizardClassNameCamelCase}(orm.TransientModel):
     """ Wizard name: ${1:WizardNameCamelCase}
@@ -189,146 +176,99 @@ $1()]]></text>
     _name = '${2:wizard.model}'
     _description = '${3:description}'
     
-    _columns = {
-        'name': fields.char(
-            '${4:Name}', size=${5:64}, 
-            required=${6:True}, 
-            ),$0
-    }
-    
-    #_defaults = {
-    #   'name': lambda *a: None,
-        }
-$0]]></text>
+    # -------------------------------------------------------------------------
+    # COLUMNS:
+    # -------------------------------------------------------------------------
+    name = fields.Char('${4:Name}', size=${5:64}, required=${6:True})
+    $0
+    # -------------------------------------------------------------------------
+]]></text>
     <tag>classw9</tag>
     <description>ODOO Class: wizard model</description>
-  </snippet>
-
-  <snippet>
-    <text><![CDATA[class ${1:AbstractClassNameCamelCase}(orm.TransientModel):
-    """ Abstract model name: ${1:AbstractNameCamelCase}
-    """
-    
-    _name = '${2:abstract.model}'
-    _description = '${3:description}'
-    
-$0]]></text>
-    <tag>classa9</tag>
-    <description>ODOO Class: Abstract model</description>
   </snippet>
 
   <!-- ****** -->
   <!-- FIELDS  -->
   <!-- ****** -->  
   <snippet>
-    <text><![CDATA['${1:file}': fields.binary('${2:Label}', filters=${3:None}),$0]]></text>
+    <text><![CDATA['${1:file}' = fields.Ninary('${2:Label}', filters=${3:None})$0]]></text>
     <tag>binary9</tag>
     <description>fields.binary</description>
   </snippet>
   
   <snippet>
-    <text><![CDATA['$1':fields.boolean('${2:Label}',$0]]></text>
+    <text><![CDATA['$1' = fields.Boolean('${2:Label}'$0]]></text>
     <tag>bool9</tag>
     <description>fields.boolean</description>
   </snippet>
   
   <snippet>
-    <text><![CDATA['$1': fields.char('${2:Label}', size=${3:64}, 
-        required=${4:True}, readonly=${5:True}),$0]]></text>
+    <text><![CDATA['$1' = fields.Char('${2:Label}', size=${3:64}, required=${4:True}, readonly=${5:True})$0]]></text>
     <tag>char9</tag>
     <description>fields.char</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['note': fields.text('Note'),$0]]></text>
+    <text><![CDATA['note' = fields.Text('Note')$0]]></text>
     <tag>text9</tag>
     <description>fields.text</description>
   </snippet>
   
   <snippet>
-    <text><![CDATA['${1:date}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['${1:date}' = fields.Date('${2:Label}', required=${4:True})$0]]></text>
     <tag>date9</tag>
     <description>fields.date</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:datetime}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['${1:datetime}' = fields.Datetime('${2:Label}', required=${4:True})$0]]></text>
     <tag>datetime9</tag>
     <description>fields.datetime</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:time}': fields.date('${2:Label}', required=${4:True}),$0]]></text>
-    <tag>time9</tag>
-    <description>fields.time</description>
-  </snippet>
-    
-  <snippet>
-    <text><![CDATA['${1:float}': fields.float('${2:Label}', digits=(${3:16}, 
-        config(int['price_accuracy']))), required=${4:False}),$0]]></text>
+    <text><![CDATA['${1:float}' = fields.Float('${2:Label}', digits=(${3:16}, config(int['price_accuracy']))), required=${4:True})$0]]></text>
     <tag>float9</tag>
     <description>fields.float</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:number}': fields.integer('${2:Label}', required=${3:True}),$0]]></text>
+    <text><![CDATA['${1:number}' = fields.Integer('${2:Label}', required=${3:True})$0]]></text>
     <tag>int9</tag>
     <description>fields.integer</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['${1:number_big}': fields.integer_big('${2:Label}'), required=${3:True}),$0]]></text>
+    <text><![CDATA['${1:number_big}' = fields.Integer_big('${2:Label}'), required=${3:True})$0]]></text>
     <tag>bigint9</tag>
     <description>fields.integer_big</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['$1_id': fields.many2one('${2:openerp.model}', '${3:Label}', required=${4:True}),$0]]></text>
+    <text><![CDATA['$1_id' = fields.many2one('${2:openerp.model}', '${3:Label}', required=${4:True})$0]]></text>
     <tag>mo9</tag>
     <description>fields.many2one</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['$1_ids': fields.one2many('${2:openerp.model}', '${3:field}_id', '${4:Label}', required=${5:True}),$0]]></text>
+    <text><![CDATA['$1_ids' = fields.one2many('${2:openerp.model}', '${3:field}_id', '${4:Label}', required=${5:True})$0]]></text>
     <tag>om9</tag>
     <description>fields.one2many</description>
   </snippet>
 
   <snippet>
-    <text><![CDATA['$1_ids': fields.many2many(
-    '${2:openerp.model}', '${3:partner_category}_rel', 
-    '${5:partner}_id', '${6:category}_id', 
-    '${4:Label}'),$0]]></text>
+    <text><![CDATA['$1_ids': fields.Many2many('${2:openerp.model}', string='${3:Label}')$0]]></text>
     <tag>mm9</tag>
     <description>fields.many2many</description>
   </snippet>
 
-  <snippet>
-    <text><![CDATA['$1': fields.function(
-    ${2:_function_call}, method=True, 
-    type='${3:float}', string='${4:Label}', 
-    store=${5:True}), 
-                
-    def ${2:_function_call}(self, cr, uid, ids, fields, args, context=None):
-        ''' Fields function for calculate $0
-        ''']]></text>
-    <tag>function9</tag>
-    <description>fields.function</description>
-  </snippet>
-
+  <!--function removed-->
+  
   <!--related removed-->
 
-  <snippet> <!--NEVER USED TODO TEST!!-->
-    <text><![CDATA['${1:ref}': fields.reference('${2:Document}', 
-    selection=[
-        #TODO : define list of model and Label that will be work as a reference
-        ('account.account', 'Account'),
-        $0
-    ], size$=${3:128}),]]></text>
-    <tag>reference9</tag>
-    <description>fields.reference</description>
-  </snippet>
+  <!--reference removed-->
 
+<!-- XXX A QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
   <snippet>
     <text><![CDATA['state': fields.selection([
     ('draft', 'Draft'),
@@ -342,29 +282,8 @@ $0]]></text>
     <tag>state9</tag>
     <description>fields.selection (state)</description>
   </snippet>
-  
-  <snippet>
-    <text><![CDATA['${1:selection}': fields.selection([
-    ('${2:defaultvalue}', '${2:defaultvalue}'),
-    ], '${1:selection}'),
-    
-    # Default value:
-    '${1:selection}': lambda *x: '${1:defaultvalue}',$0
-    ]]></text>
-    <tag>select9</tag>
-    <description>fields.selection (list)</description>
-  </snippet>
 
-  <snippet>
-    <text><![CDATA['${1:selection}': fields.selection(
-    _get_selection_funct, '${1:selection}'),
-    
-    # Default value:
-    '${1:selection}': lambda *x: '',$0
-    ]]></text>
-    <tag>selectf9</tag>
-    <description>fields.selection (function for list)</description>
-  </snippet>
+  <!--2 selection case removed-->
 
   <!-- ************ -->
   <!-- ORM OVERRIDE -->
